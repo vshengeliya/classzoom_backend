@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-    #before_action :find_student, only: [:show]
+    before_action :find_student, only: [:show]
 
     def index
         students = Student.all
@@ -7,8 +7,7 @@ class StudentsController < ApplicationController
     end
 
     def show
-        student = Student.find(params[:id])
-        render json: student.serializable_hash(include: {teachers: {except: ['created_at', 'updated_at']}})
+        render json: @student.serializable_hash(include: {teachers: {except: ['created_at', 'updated_at']}})
     end
 
 
