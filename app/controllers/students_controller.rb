@@ -8,7 +8,7 @@ class StudentsController < ApplicationController
 
     def show
         student = Student.find(params[:id])
-        render json: student.serializable_hash(include: {teachers: {only: 'name'}})
+        render json: student.serializable_hash(include: {teachers: {except: ['created_at', 'updated_at']}})
     end
 
 
