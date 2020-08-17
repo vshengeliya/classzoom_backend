@@ -5,11 +5,12 @@ module ZoomRunner
     ZOOM_API_VERSION = "v2"
     BASE_URI = "https://api.zoom.us/#{ZOOM_API_VERSION}/users"
     #PREFIX_URI = "/users"
-    ACCOUNT_URI_EP = "/me"
+    TARGET_USER_EP = "/me"
+    MEETING_EP = "/meetings"
 
     #TODO - enable dynamic behavior for various endpoints based on frontend user actions... let's narrow down to MVP scope of meeting actions
     def self.url_builder
-        URI(BASE_URI+ACCOUNT_URI_EP)
+        URI(BASE_URI+TARGET_USER_EP)
     end
 
 
