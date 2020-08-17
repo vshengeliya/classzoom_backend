@@ -5,6 +5,7 @@ class Classroom < ApplicationRecord
   
   has_many :events
 
+  
   # refactoring note: rename method for ease of use on frontend when handling as json objects
   def unique_teachers
     self.teachers.uniq

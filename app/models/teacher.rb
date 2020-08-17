@@ -4,6 +4,7 @@ class Teacher < ApplicationRecord
     has_many :teacher_students
     has_many :students, through: :teacher_students
 
+    
     def attributes
         { 'id' => nil, 'name' => nil, 'email' => nil, 'zoom_url' => nil }
     end
