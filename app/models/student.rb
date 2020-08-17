@@ -9,7 +9,7 @@ class Student < ApplicationRecord
 
     # Serialization Helper Method 
     def attributes
-        { 'id' => nil, 'name' => nil, 'email' => nil, 'zoom_url' => nil }
+        { 'id' => nil, 'name' => nil, 'email' => nil, 'zoom_meeting_url' => nil }
     end
 
     # Frontend Helper Methods
