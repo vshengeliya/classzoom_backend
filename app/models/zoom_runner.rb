@@ -15,8 +15,8 @@ module ZoomRunner
 
 
     def self.response
-        #url = URI("https://api.zoom.us/v2/users/me")
-        url = ZoomRunner.url_builder
+        url = URI("https://api.zoom.us/v2/meetings/#{3505637015}")
+        #url = ZoomRunner.url_builder
 
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
