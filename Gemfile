@@ -9,6 +9,13 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
+
+# gem 'zoom_rb'
+
+# Add JSON Web Token to Rails Authorization Process for SDK
+gem 'jwt'
+# Create custom JSON by representing each resource as a class that inherits from ActiveModel::Serializer
+# gem 'active_model_serializers'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
