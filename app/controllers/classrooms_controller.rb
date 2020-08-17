@@ -7,7 +7,7 @@ class ClassroomsController < ApplicationController
     end
 
     def show
-        render json: @classroom.serializable_hash( include: [{unique_teachers: {except: ['created_at', 'updated_at']}}, {students: {except: ['created_at', 'updated_at']}}, events: {except: ['created_at', 'updated_at']}] )
+        render json: @classroom.serializable_hash( include: [{ unique_teachers: { except: ['created_at', 'updated_at'] } }, { students: { except: ['created_at', 'updated_at'] }  }, events: { except: ['created_at', 'updated_at'] }] )
     end
 
 
