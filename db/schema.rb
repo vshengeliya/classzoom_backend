@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_14_234425) do
+ActiveRecord::Schema.define(version: 2020_08_17_212656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,9 +36,13 @@ ActiveRecord::Schema.define(version: 2020_08_14_234425) do
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "zoom_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "current_zoom_meeting_url"
+    t.string "current_zoom_meeting_id"
+    t.string "current_zoom_meeting_password"
+    t.string "current_zoom_meeting_start_time"
+    t.integer "current_zoom_meeting_duration"
   end
 
   create_table "teacher_students", force: :cascade do |t|
@@ -55,9 +59,13 @@ ActiveRecord::Schema.define(version: 2020_08_14_234425) do
   create_table "teachers", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "zoom_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "current_zoom_meeting_url"
+    t.string "current_zoom_meeting_id"
+    t.string "current_zoom_meeting_password"
+    t.string "current_zoom_meeting_start_time"
+    t.integer "current_zoom_meeting_duration"
   end
 
   add_foreign_key "events", "classrooms"
