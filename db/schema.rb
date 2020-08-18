@@ -41,8 +41,9 @@ ActiveRecord::Schema.define(version: 2020_08_17_212656) do
     t.string "current_zoom_meeting_url"
     t.string "current_zoom_meeting_id"
     t.string "current_zoom_meeting_password"
-    t.string "current_zoom_meeting_start_time"
+    t.datetime "current_zoom_meeting_start_time"
     t.integer "current_zoom_meeting_duration"
+    t.boolean "is_at_desk?", default: true, null: false
   end
 
   create_table "teacher_students", force: :cascade do |t|
@@ -64,8 +65,9 @@ ActiveRecord::Schema.define(version: 2020_08_17_212656) do
     t.string "current_zoom_meeting_url"
     t.string "current_zoom_meeting_id"
     t.string "current_zoom_meeting_password"
-    t.string "current_zoom_meeting_start_time"
+    t.datetime "current_zoom_meeting_start_time"
     t.integer "current_zoom_meeting_duration"
+    t.boolean "is_at_desk?", default: true, null: false
   end
 
   add_foreign_key "events", "classrooms"
