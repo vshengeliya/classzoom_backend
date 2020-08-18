@@ -8,7 +8,7 @@ class Teacher < ApplicationRecord
 
     # Serialization Helper Method 
     def attributes
-        { 'id' => nil, 'name' => nil, 'email' => nil, 'zoom_meeting_url' => nil }
+        { 'id' => nil, 'name' => nil, 'email' => nil, 'zoom_meeting_url' => nil, 'zoom_meeting_id' => nil, 'zoom_meeting_password' => nil, 'zoom_meeting_time' => nil, 'zoom_meeting_length' => nil }
     end
 
     # Frontend Helper Methods
