@@ -4,14 +4,20 @@ class Teacher < ApplicationRecord
     has_many :teacher_students
     has_many :students, through: :teacher_students
 
-    ## Helper Methods Below
+    ### Helper Methods Below
 
-    # Serialization Helper Method 
+    ## Serialization Helper Method 
     def attributes
-        { 'id' => nil, 'name' => nil, 'email' => nil, 'zoom_meeting_url' => nil, 'zoom_meeting_id' => nil, 'zoom_meeting_password' => nil, 'zoom_meeting_time' => nil, 'zoom_meeting_length' => nil }
+        { 'id' => nil, 'name' => nil, 'email' => nil, 'zoom_meeting_url' => nil, 'zoom_meeting_id' => nil, 'zoom_meeting_password' => nil, 'zoom_meeting_time' => nil, 'zoom_meeting_length' => nil, 'isAtDesk' => nil }
     end
 
-    # Frontend Helper Methods
+    ## Frontend Helper Methods
+    # Boolean method to track whether student is at their desk
+    def isAtDesk
+        self.is_at_desk?
+    end
+
+    #? refactor to make this JS friendly re: camelcasing
     def zoom_meeting_url
         self.current_zoom_meeting_url
     end
