@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
     def create
-      byebug
         user = Student
             .find_by(email: params["email"])
             .try(:authenticate, params["password"])
