@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  # root 'static_pages#home'
+  
+  # post 'session' => 'session#create'
+
+  resources :sessions
+
   resources :classrooms, only: [:index, :show]
 
-  get '/meetings' => 'zoom_meetings#index', as: 'meetings'
-  get '/meetings/:id' => 'zoom_meetings#show', as: 'meeting'
-  post '/meetings' => 'zoom_meetings#create'
-  delete '/meetings/:id' => 'zoom_meetings#destroy'
+  post '/meetings' => 'zoom_meetings#create', as: 'meetings'
+  delete '/meetings/:id' => 'zoom_meetings#destroy', as: 'meeting'
 
-  resources :students, only: [:index, :show]
-  resources :teachers, only: [:index, :show]
+  resources :students
+  resources :teachers
 end
