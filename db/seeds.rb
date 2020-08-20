@@ -10,13 +10,13 @@ Teacher.destroy_all
 puts "#2 - Seeding database with..."
 
 flatiron = Classroom.create!( name: "The Best Cohort: 06-22-20" )
-teacher_obj = Teacher.create!( name: "Test-TeacherName", email: "Test-TeacherEmail@invalid.com", current_zoom_meeting_url: "https://us04web.zoom.us/j/1234567890?pwd=R3ZBU2JBN3NnOTlDbHh1VjR4Q1NhUT09", current_zoom_meeting_id: "1234567890", current_zoom_meeting_password: "password", current_zoom_meeting_start_time: "08-20-2020 20:00", current_zoom_meeting_duration: 60)
+teacher_obj = Teacher.create!( name: "Steven", email: "steven@flatiron.js", password_digest: BCrypt::Password.create('password'), current_zoom_meeting_url: "https://us04web.zoom.us/j/1234567890?pwd=R3ZBU2JBN3NnOTlDbHh1VjR4Q1NhUT09", current_zoom_meeting_id: "1234567890", current_zoom_meeting_password: "password", current_zoom_meeting_start_time: "08-20-2020 20:00", current_zoom_meeting_duration: 60)
 
 puts "#2a - ... students, teacher:"
-(1..15).each do |i|
-    student_obj = Student.create!( name: "Test-StudentName#{i}", email: "Test-StudentEmail#{i}@invalid.com", current_zoom_meeting_url: "https://us04web.zoom.us/j/1234567890?pwd=R3ZBU2JBN3NnOTlDbHh1VjR4Q1NhUT09", current_zoom_meeting_id: "1234567890", current_zoom_meeting_password: "password", current_zoom_meeting_start_time: "08-20-2020 20:00", current_zoom_meeting_duration: 60)
-end
+require 'csv'
+students = CSV.parse(File.read("./storage/flatiron_cohort_062220_student_list.csv"), headers: true)
 
+students.each { |student| Student.create!( name: student, email: student["name"].downcase.split(" ").first + "@gmail.com", password_digest: BCrypt::Password.create('password'), current_zoom_meeting_url: "https://us04web.zoom.us/j/1234567890?pwd=R3ZBU2JBN3NnOTlDbHh1VjR4Q1NhUT09", current_zoom_meeting_id: "1234567890", current_zoom_meeting_password: "password", current_zoom_meeting_start_time: "08-20-2020 20:00", current_zoom_meeting_duration: 60)}
 
 Student.all.each do |student|
     TeacherStudent.create!( student: student, teacher: teacher_obj, classroom_id: flatiron.id )
