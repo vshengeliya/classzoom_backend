@@ -4,6 +4,8 @@ class Teacher < ApplicationRecord
     has_many :teacher_students
     has_many :students, through: :teacher_students
 
+    has_secure_password
+
     ### Helper Methods Below
 
     ## Serialization Helper Method 
