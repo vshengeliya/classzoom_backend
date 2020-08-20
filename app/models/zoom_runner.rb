@@ -34,7 +34,7 @@ module ZoomRunner
         request['content-type'] = 'application/json'
         request['authorization'] = "Bearer #{ZoomJwt::Auth.make_jwt}"
         zoom_body = {
-            'topic': 'string',
+            'topic': 'Project Zoom Demo',
             'type': 2,
             'start_time': self.schedule_for_time,
             'duration': 60,

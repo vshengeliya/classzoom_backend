@@ -1,9 +1,10 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
 
     def create
+      byebug
         user = Student
-            .find_by(email: params["students"]["email"])
-            .try(:authenticate, params["students"]["password"])
+            .find_by(email: params["email"])
+            .try(:authenticate, params["password"])
     
         if user
           session[:user_id] = user.id

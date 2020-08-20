@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_212656) do
+ActiveRecord::Schema.define(version: 2020_08_20_040008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_212656) do
     t.datetime "current_zoom_meeting_start_time"
     t.integer "current_zoom_meeting_duration"
     t.boolean "is_at_desk?", default: true, null: false
+    t.string "password_digest"
   end
 
   create_table "teacher_students", force: :cascade do |t|
@@ -68,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_08_17_212656) do
     t.datetime "current_zoom_meeting_start_time"
     t.integer "current_zoom_meeting_duration"
     t.boolean "is_at_desk?", default: true, null: false
+    t.string "password_digest"
   end
 
   add_foreign_key "events", "classrooms"

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   # post 'session' => 'session#create'
 
-  resource :session
+  resources :sessions
 
   resources :classrooms, only: [:index, :show]
 
